@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Users, Server, Package, ChevronRight, CheckCircle2, ArrowRight } from 'lucide-react'
 import outsourcingImg from '../images/IT outsourcing.jpg'
-import servicesImg    from '../images/IT services.png'
+import servicesImg    from '../images/it services.jpg'
 import productsImg    from '../images/IT products.jpg'
 
 const verticals = [
