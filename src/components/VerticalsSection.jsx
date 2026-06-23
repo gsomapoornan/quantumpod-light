@@ -1,4 +1,4 @@
-import { ArrowRight, Users, Server, Package, CheckCircle } from 'lucide-react'
+import { ArrowRight, Users, Server, Package, TrendingUp, CheckCircle } from 'lucide-react'
 
 const VERTICALS = [
   {
@@ -31,6 +31,16 @@ const VERTICALS = [
     accent: '#003399',
     href: '#products',
   },
+  {
+    icon: TrendingUp,
+    tag: 'Vertical 04',
+    label: 'Digital Marketing',
+    headline: 'Brand Growth for the Digital Era.',
+    desc: 'Full-funnel digital marketing — performance campaigns, strategic brand management, and influencer partnerships. Data-driven execution that converts audiences into measurable revenue.',
+    metrics: ['Performance Marketing', 'Brand Management', 'Influencer Marketing'],
+    accent: '#7C3AED',
+    href: '#digital-marketing',
+  },
 ]
 
 export default function VerticalsSection() {
@@ -48,16 +58,16 @@ export default function VerticalsSection() {
               </span>
             </div>
             <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.03em', color: '#003399', lineHeight: 1.1, maxWidth: '480px' }}>
-              Three Verticals.<br />One Singular Vision.
+              Four Verticals.<br />One Singular Vision.
             </h2>
           </div>
-          <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1rem', fontWeight: 400, letterSpacing: '0em', lineHeight: 1.7, color: '#757575', maxWidth: '340px' }}>
-            QuantumPod unifies outsourcing, infrastructure, and product engineering under one accountable partner — purpose-built for organizations operating at global scale.
+          <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1rem', fontWeight: 400, letterSpacing: '0em', lineHeight: 1.7, color: '#757575', maxWidth: '340px', textAlign: 'justify', textAlignLast: 'left' }}>
+            QuantumPod unifies outsourcing, infrastructure, product engineering, and digital marketing under one accountable partner — purpose-built for organizations operating at global scale.
           </p>
         </div>
 
-        {/* Three vertical cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0" style={{ border: '1px solid rgba(0,51,153,0.1)' }}>
+        {/* Four vertical cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0" style={{ border: '1px solid rgba(0,51,153,0.1)' }}>
           {VERTICALS.map((v, i) => {
             const Icon = v.icon
             return (
@@ -65,7 +75,8 @@ export default function VerticalsSection() {
                 key={v.label}
                 className="flex flex-col p-8 transition-all duration-300 group"
                 style={{
-                  borderRight: i < 2 ? '1px solid rgba(0,51,153,0.1)' : 'none',
+                  borderRight: (i % 2 === 0) ? '1px solid rgba(0,51,153,0.1)' : 'none',
+                  borderBottom: i < 2 ? '1px solid rgba(0,51,153,0.1)' : 'none',
                   borderTop: `3px solid ${v.accent}`,
                   position: 'relative',
                   background: '#ffffff',
@@ -73,20 +84,15 @@ export default function VerticalsSection() {
                 onMouseEnter={e => e.currentTarget.style.background = '#fafbff'}
                 onMouseLeave={e => e.currentTarget.style.background = '#ffffff'}
               >
-                {/* Tag */}
+                {/* Icon + Label tag — accent box, label only (no "Vertical 0X" prefix) */}
                 <div className="flex items-center gap-2 mb-5">
                   <div className="flex items-center justify-center w-8 h-8" style={{ background: `${v.accent}12`, border: `1px solid ${v.accent}30` }}>
                     <Icon size={15} style={{ color: v.accent }} strokeWidth={1.8} />
                   </div>
                   <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.46rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: v.accent }}>
-                    {v.tag}
+                    {v.label}
                   </span>
                 </div>
-
-                {/* Label */}
-                <p style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#9ca3af', marginBottom: '8px' }}>
-                  {v.label}
-                </p>
 
                 {/* Headline */}
                 <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)', letterSpacing: '-0.02em', color: '#003399', lineHeight: 1.2, marginBottom: '16px' }}>
@@ -97,7 +103,7 @@ export default function VerticalsSection() {
                 <div style={{ width: '32px', height: '1px', background: v.accent, marginBottom: '16px', opacity: 0.5 }} />
 
                 {/* Description */}
-                <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.92rem', fontWeight: 400, letterSpacing: '0em', lineHeight: 1.7, color: '#757575', marginBottom: '20px', flexGrow: 1 }}>
+                <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.92rem', fontWeight: 400, letterSpacing: '0em', lineHeight: 1.7, color: '#757575', marginBottom: '20px', flexGrow: 1, textAlign: 'justify', textAlignLast: 'left' }}>
                   {v.desc}
                 </p>
 

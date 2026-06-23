@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
-import logoImg from '../images/logo.png'
 import outsourcingImg from '../images/IT outsourcing.jpg'
 import servicesImg    from '../images/IT Services.jpg'
 import productsImg    from '../images/IT products.jpg'
@@ -10,16 +9,18 @@ const SLIDES = [
     id: 'outsourcing',
     image: outsourcingImg,
     label: 'IT Outsourcing',
-    headline: 'Integrated Global Teams That Deliver',
+    headline: `Integrated Global Teams
+That Deliver.`,
     description: 'Outcome-driven engineering talent embedded in your organization — aligned to your KPIs, not timesheets. Elastic squads across 40+ countries.',
     cta: 'Explore Outsourcing',
-    accent: '#003399',
+    accent: '#1A5FC1',
   },
   {
     id: 'services',
     image: servicesImg,
     label: 'IT Services',
-    headline: 'Infrastructure Built for Sovereignty',
+    headline: `Infrastructure Built
+for Sovereignty.`,
     description: 'Enterprise-grade hybrid cloud, edge computing, and zero-trust security — delivering 99.99% uptime SLA for the most demanding environments.',
     cta: 'Explore IT Services',
     accent: '#C00D55',
@@ -28,10 +29,21 @@ const SLIDES = [
     id: 'products',
     image: productsImg,
     label: 'IT Products',
-    headline: 'SaaS Products That Scale Deterministically',
+    headline: `SaaS That Scales
+Deterministically.`,
     description: 'API-first, SOC 2 certified SaaS products engineered for enterprise scale. Immutable audit trails. 10ms P99 latency. Built for 10K+ req/s.',
     cta: 'Explore Products',
     accent: '#003399',
+  },
+  {
+    id: 'digital-marketing',
+    image: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=1600&q=80',
+    label: 'Digital Marketing',
+    headline: `Brand Growth Engineered
+for the Digital Era.`,
+    description: 'Full-funnel digital marketing — from performance campaigns and brand management to influencer strategy. Data-driven execution that converts audiences into revenue.',
+    cta: 'Explore Digital Marketing',
+    accent: '#7C3AED',
   },
 ]
 
@@ -83,121 +95,93 @@ export default function HeroSlider() {
             alt={s.label}
             className="w-full h-full object-cover object-center"
           />
-          {/* Refined gradient — slight navy tint at bottom for brand cohesion */}
-          <div className="absolute inset-0"
-            style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,5,20,0.1) 35%, rgba(0,10,40,0.82) 100%)' }} />
-          {/* Left edge crimson rule */}
-          <div className="absolute inset-y-0 left-0 w-[3px]" style={{ background: '#C00D55' }} />
+          {/* Strong multi-stop overlay — image stays vivid top, text always legible bottom */}
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(to bottom, rgba(0,8,30,0.18) 0%, rgba(0,8,30,0.22) 30%, rgba(0,8,30,0.55) 58%, rgba(0,8,30,0.88) 80%, rgba(0,5,20,0.97) 100%)'
+          }} />
+          {/* Left edge accent rule — per slide color */}
+          <div className="absolute inset-y-0 left-0 w-[4px]" style={{ background: `linear-gradient(to bottom, ${s.accent}00, ${s.accent}, ${s.accent}00)` }} />
         </div>
       ))}
 
-      {/* ── Vertical nav — right side, Orbitron ── */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-end gap-5">
-        {SLIDES.map((s, i) => (
-          <button key={s.id} onClick={() => goTo(i, i > active ? 'next' : 'prev')}
-            className="flex items-center gap-2 transition-all duration-300">
-            <span
-              style={{
-                fontFamily: "'Orbitron', sans-serif",
-                fontSize: '0.52rem',
-                fontWeight: 700,
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color: i === active ? '#ffffff' : 'rgba(255,255,255,0.3)',
-                writingMode: 'vertical-rl',
-                textOrientation: 'mixed',
-                transform: 'rotate(180deg)',
-                transition: 'color 0.3s ease',
-              }}>
-              {s.label}
-            </span>
-            <span
-              className="flex-shrink-0 transition-all duration-300"
-              style={{
-                width: '2px',
-                height: i === active ? '44px' : '14px',
-                background: i === active ? '#C00D55' : 'rgba(255,255,255,0.2)',
-                borderRadius: '1px',
-              }} />
-          </button>
-        ))}
-      </div>
-
       {/* ── Main content block — bottom left ── */}
       <div
-        className="absolute bottom-0 left-0 z-20 px-8 lg:px-14 pb-10 lg:pb-14"
-        style={{ maxWidth: 'min(680px, 65vw)' }}
+        className="absolute bottom-0 left-0 right-0 lg:right-auto z-20 px-8 lg:px-14 pb-12 lg:pb-16"
+        style={{ maxWidth: 'min(760px, 72vw)', width: '100%' }}
       >
-        {/* Category tag — left crimson rule, no blob */}
+        {/* Label tag — solid accent pill box, title only */}
         <div
-          className="flex items-center gap-3 mb-4"
+          className="inline-flex items-center mb-5"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(10px)',
             transition: 'opacity 0.3s ease, transform 0.3s ease',
           }}>
-          <span className="flex-shrink-0" style={{ width: '28px', height: '2px', background: '#C00D55' }} />
-          <span
-            style={{
+          <div className="inline-flex items-center px-3 py-1.5" style={{
+            background: slide.accent,
+            borderLeft: '3px solid rgba(255,255,255,0.5)',
+          }}>
+            <span style={{
               fontFamily: "'Orbitron', sans-serif",
-              fontSize: '0.6rem',
+              fontSize: '0.52rem',
               fontWeight: 700,
-              letterSpacing: '0.22em',
+              letterSpacing: '0.28em',
               textTransform: 'uppercase',
-              color: '#C00D55',
-            }}>
-            {slide.label}
-          </span>
+              color: '#ffffff',
+            }}>{slide.label}</span>
+          </div>
         </div>
 
-        {/* Headline — white-to-ice-blue gradient, tech glow */}
+        {/* Headline — large, bold, white with strong text-shadow for legibility over any image */}
         <h1
-          className="leading-tight mb-4"
+          className="mb-5"
           style={{
             fontFamily: "'Space Grotesk', sans-serif",
-            fontWeight: 700,
-            fontSize: 'clamp(1.6rem, 3.5vw, 3rem)',
-            letterSpacing: '-0.02em',
-            lineHeight: 1.1,
-            background: 'linear-gradient(135deg, #ffffff 0%, #e0ecff 45%, #a8c8ff 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            filter: 'drop-shadow(0 0 18px rgba(26,95,193,0.35))',
+            fontWeight: 800,
+            fontSize: 'clamp(2rem, 4.2vw, 3.6rem)',
+            letterSpacing: '-0.025em',
+            lineHeight: 1.08,
+            color: '#ffffff',
+            whiteSpace: 'pre-line',
+            textShadow: '0 2px 4px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.4)',
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(18px)',
             transition: 'opacity 0.38s ease 0.06s, transform 0.38s ease 0.06s',
           }}>
           {slide.headline}
         </h1>
-
-        {/* Thin rule divider */}
+        {/* Description card — frosted glass with left accent border */}
         <div
-          className="mb-4"
+          className="mb-6"
           style={{
-            width: '48px',
-            height: '1px',
-            background: 'rgba(255,255,255,0.35)',
-            opacity: visible ? 1 : 0,
-            transition: 'opacity 0.3s ease 0.12s',
-          }} />
-
-        {/* Description */}
-        <p
-          className="leading-relaxed mb-7"
-          style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: 'clamp(0.88rem, 1.2vw, 1rem)',
-            fontWeight: 400,
-            color: 'rgba(200,220,255,0.85)',
-            letterSpacing: '0.01em',
-            lineHeight: 1.75,
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(14px)',
             transition: 'opacity 0.38s ease 0.12s, transform 0.38s ease 0.12s',
           }}>
-          {slide.description}
-        </p>
+          <div style={{
+            background: 'rgba(0,8,30,0.55)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            borderLeft: `3px solid ${slide.accent}`,
+            padding: '14px 18px',
+            marginBottom: '14px',
+          }}>
+            <p style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: 'clamp(0.88rem, 1.15vw, 1rem)',
+              fontWeight: 400,
+              color: 'rgba(220,232,255,0.92)',
+              letterSpacing: '0.01em',
+              lineHeight: 1.75,
+              margin: 0,
+              textAlign: 'justify',
+              textAlignLast: 'left',
+            }}>
+              {slide.description}
+            </p>
+          </div>
+
+        </div>
 
         {/* CTA + nav arrows */}
         <div
@@ -207,47 +191,50 @@ export default function HeroSlider() {
             transform: visible ? 'translateY(0)' : 'translateY(12px)',
             transition: 'opacity 0.38s ease 0.18s, transform 0.38s ease 0.18s',
           }}>
-          {/* Sharp outlined CTA */}
+          {/* Solid accent CTA */}
           <a
             href="#contact"
-            className="inline-flex items-center gap-2.5 font-bold text-white text-xs tracking-widest uppercase transition-all duration-250 group"
+            onClick={e => e.stopPropagation()}
+            className="inline-flex items-center gap-2.5 font-bold transition-all duration-200 group"
             style={{
               fontFamily: "'Orbitron', sans-serif",
-              letterSpacing: '0.15em',
-              fontSize: '0.62rem',
-              padding: '10px 22px',
-              border: '1.5px solid rgba(255,255,255,0.7)',
-              background: 'transparent',
+              letterSpacing: '0.14em',
+              fontSize: '0.58rem',
+              padding: '11px 24px',
+              background: slide.accent,
+              border: `1.5px solid ${slide.accent}`,
+              color: '#ffffff',
+              textDecoration: 'none',
             }}
-            onMouseEnter={e => { e.currentTarget.style.background = '#C00D55'; e.currentTarget.style.borderColor = '#C00D55' }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.7)' }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#ffffff' }}
+            onMouseLeave={e => { e.currentTarget.style.background = slide.accent; e.currentTarget.style.color = '#ffffff' }}
           >
             {slide.cta}
-            <ArrowRight size={12} />
+            <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
           </a>
 
           {/* Thin separator */}
-          <span style={{ width: '1px', height: '24px', background: 'rgba(255,255,255,0.2)' }} />
+          <span style={{ width: '1px', height: '24px', background: 'rgba(255,255,255,0.18)' }} />
 
-          {/* Minimal prev/next — no circles */}
+          {/* prev/next */}
           <div className="flex items-center gap-1">
             <button
-              onClick={prev}
+              onClick={e => { e.stopPropagation(); prev() }}
               className="flex items-center justify-center transition-all duration-200"
-              style={{ color: 'rgba(255,255,255,0.5)', padding: '6px' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
+              style={{ color: 'rgba(255,255,255,0.45)', padding: '6px', border: '1px solid rgba(255,255,255,0.15)' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.borderColor = slide.accent }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.45)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)' }}
             >
-              <ChevronLeft size={20} strokeWidth={1.5} />
+              <ChevronLeft size={18} strokeWidth={2} />
             </button>
             <button
-              onClick={next}
+              onClick={e => { e.stopPropagation(); next() }}
               className="flex items-center justify-center transition-all duration-200"
-              style={{ color: 'rgba(255,255,255,0.5)', padding: '6px' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
+              style={{ color: 'rgba(255,255,255,0.45)', padding: '6px', border: '1px solid rgba(255,255,255,0.15)' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.borderColor = slide.accent }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.45)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)' }}
             >
-              <ChevronRight size={20} strokeWidth={1.5} />
+              <ChevronRight size={18} strokeWidth={2} />
             </button>
           </div>
         </div>

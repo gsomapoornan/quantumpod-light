@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Users, Server, Package, ChevronRight, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Users, Server, Package, TrendingUp, ChevronRight, CheckCircle2, ArrowRight } from 'lucide-react'
 import outsourcingImg from '../images/IT outsourcing.jpg'
 import servicesImg    from '../images/it services.jpg'
 import productsImg    from '../images/IT products.jpg'
@@ -64,6 +64,26 @@ const verticals = [
     features: ['10ms P99 latency', 'SOC 2 Type II', 'Multi-tenant SaaS', '10K+ req/s capacity'],
     badge: '10ms P99 Latency',
     metric: '10K+ API req/s',
+  },
+  {
+    id: 'digital-marketing',
+    tab: 'Digital Marketing',
+    tagline: 'Growth-Driven Visibility',
+    icon: TrendingUp,
+    image: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=1200&q=80',
+    imageAlt: 'Digital marketing strategy — analytics dashboard',
+    imagePos: 'object-cover object-center',
+    headline: 'Brand Growth\nEngineered for the Digital Era.',
+    description: 'Full-funnel digital marketing combining performance campaigns, strategic brand management, and data-driven influencer partnerships — turning audiences into measurable revenue.',
+    pillars: [
+      { title: 'Digital Marketing' },
+      { title: 'Brand Management' },
+      { title: 'Performance Marketing' },
+      { title: 'Influencer Marketing' },
+    ],
+    features: ['SEO & SEM campaigns', 'Social media strategy', 'Influencer partnerships', 'ROI-tracked execution'],
+    badge: '360° Coverage',
+    metric: '10× ROAS Target',
   },
 ]
 
@@ -195,11 +215,11 @@ export default function VerticalSwitcher({ embedded = false }) {
           </div>
           <h2 className="font-black leading-tight tracking-tight mb-3"
             style={{ fontSize: 'clamp(2rem,4vw,3rem)', color: '#003399' }}>
-            Three Verticals.{' '}
+            Four Verticals.{' '}
             <span style={{ color: '#C00D55' }}>One Vision.</span>
           </h2>
           <p className="max-w-xl mx-auto leading-relaxed" style={{ color: '#757575' }}>
-            A fully integrated stack — from staffing to infrastructure to products — engineered for enterprise scale.
+            A fully integrated stack — from staffing to infrastructure, products, and digital growth — engineered for enterprise scale.
           </p>
         </div>
       )}
