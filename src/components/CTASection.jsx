@@ -17,11 +17,11 @@ export default function CTASection() {
                 Get In Touch
               </span>
             </div>
-            <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', letterSpacing: '-0.03em', color: '#003399', lineHeight: 1.1, marginBottom: '16px' }}>
+            <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 'clamp(2.2rem, 4.2vw, 3.8rem)', letterSpacing: '-0.03em', color: '#003399', lineHeight: 1.1, marginBottom: '20px' }}>
               Ready to Decode<br />the Tech Future?
             </h2>
-            <div style={{ width: '48px', height: '2px', background: 'linear-gradient(90deg, #C00D55, #003399)', marginBottom: '20px' }} />
-            <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1rem', fontWeight: 400, letterSpacing: '0em', lineHeight: 1.75, color: '#757575', maxWidth: '420px', textAlign: 'justify', textAlignLast: 'left' }}>
+            <div style={{ width: '56px', height: '2px', background: 'linear-gradient(90deg, #C00D55, #003399)', marginBottom: '24px' }} />
+            <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.1rem', fontWeight: 400, letterSpacing: '0em', lineHeight: 1.75, color: '#757575', maxWidth: '420px', textAlign: 'justify', textAlignLast: 'left' }}>
               Partner with QuantumPod Technologies and unlock the full potential of your technology investments — across outsourcing, infrastructure, and products.
             </p>
           </div>
@@ -57,7 +57,7 @@ export default function CTASection() {
             <div className="flex flex-col gap-2" style={{ marginTop: '4px' }}>
               <div className="flex items-center gap-2">
                 <Mail size={11} style={{ color: '#C00D55', flexShrink: 0 }} />
-                <p style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.46rem', fontWeight: 400, letterSpacing: '0.1em', color: '#9ca3af' }}>
+                <p style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.58rem', fontWeight: 400, letterSpacing: '0.1em', color: '#9ca3af' }}>
                   <a href="mailto:info@qpodtech.com" style={{ color: '#9ca3af', textDecoration: 'none' }}
                     onMouseEnter={e => e.currentTarget.style.color = '#C00D55'}
                     onMouseLeave={e => e.currentTarget.style.color = '#9ca3af'}>info@qpodtech.com</a>
@@ -69,7 +69,7 @@ export default function CTASection() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={11} style={{ color: '#003399', flexShrink: 0 }} />
-                <p style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.46rem', fontWeight: 400, letterSpacing: '0.1em', color: '#9ca3af' }}>
+                <p style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.58rem', fontWeight: 400, letterSpacing: '0.1em', color: '#9ca3af' }}>
                   <a href="tel:+919880289192" style={{ color: '#9ca3af', textDecoration: 'none' }}
                     onMouseEnter={e => e.currentTarget.style.color = '#003399'}
                     onMouseLeave={e => e.currentTarget.style.color = '#9ca3af'}>98802 89192</a>
@@ -81,7 +81,7 @@ export default function CTASection() {
               </div>
               <div className="flex items-center gap-2">
                 <Globe size={11} style={{ color: '#1A5FC1', flexShrink: 0 }} />
-                <p style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.46rem', fontWeight: 400, letterSpacing: '0.1em', color: '#9ca3af' }}>
+                <p style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.58rem', fontWeight: 400, letterSpacing: '0.1em', color: '#9ca3af' }}>
                   <a href="https://www.qpodtech.com" target="_blank" rel="noopener noreferrer" style={{ color: '#9ca3af', textDecoration: 'none' }}
                     onMouseEnter={e => e.currentTarget.style.color = '#1A5FC1'}
                     onMouseLeave={e => e.currentTarget.style.color = '#9ca3af'}>www.qpodtech.com</a>

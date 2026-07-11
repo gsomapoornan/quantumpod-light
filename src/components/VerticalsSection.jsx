@@ -1,4 +1,5 @@
 import { ArrowRight, Users, Server, Package, TrendingUp, CheckCircle } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const VERTICALS = [
   {
@@ -9,7 +10,7 @@ const VERTICALS = [
     desc: 'Outcome-driven engineering talent embedded directly in your organization. Elastic squads across 40+ countries, aligned to your KPIs—not timesheets.',
     metrics: ['40+ Countries', '500+ Engineers', 'Outcome-based SLA'],
     accent: '#C00D55',
-    href: '#outsourcing',
+    href: '/it-outsourcing',
   },
   {
     icon: Server,
@@ -108,25 +109,25 @@ export default function VerticalsSection() {
                 </p>
 
                 {/* Metrics */}
-                <div className="flex flex-col gap-2 mb-6">
+                <div className="flex flex-col gap-2.5 mb-6">
                   {v.metrics.map(m => (
                     <div key={m} className="flex items-center gap-2">
-                      <CheckCircle size={10} style={{ color: v.accent, flexShrink: 0 }} strokeWidth={2.5} />
-                      <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.46rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#404040' }}>{m}</span>
+                      <CheckCircle size={12} style={{ color: v.accent, flexShrink: 0 }} strokeWidth={2.5} />
+                      <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.58rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#404040' }}>{m}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* CTA */}
-                <a
-                  href={v.href}
-                  className="inline-flex items-center gap-2 transition-all duration-200"
-                  style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.5rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: v.accent, textDecoration: 'none', borderBottom: `1px solid ${v.accent}40`, paddingBottom: '2px', width: 'fit-content' }}
-                  onMouseEnter={e => e.currentTarget.style.borderBottomColor = v.accent}
-                  onMouseLeave={e => e.currentTarget.style.borderBottomColor = `${v.accent}40`}
+                <Link
+                  to={v.href}
+                  className="inline-flex items-center gap-2.5 transition-all duration-200"
+                  style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: v.accent, textDecoration: 'none', borderBottom: `2px solid ${v.accent}40`, paddingBottom: '4px', paddingTop: '2px', width: 'fit-content' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderBottomColor = v.accent; e.currentTarget.style.paddingBottom = '6px' }}
+                  onMouseLeave={e => { e.currentTarget.style.borderBottomColor = `${v.accent}40`; e.currentTarget.style.paddingBottom = '4px' }}
                 >
-                  Explore <ArrowRight size={10} strokeWidth={2.5} />
-                </a>
+                  Explore <ArrowRight size={12} strokeWidth={2.5} />
+                </Link>
               </div>
             )
           })}

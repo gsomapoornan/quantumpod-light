@@ -8,6 +8,7 @@ import CTASection from './components/CTASection'
 import Footer from './components/Footer'
 import CareersPage from './pages/CareersPage'
 import AdminPage from './pages/AdminPage'
+import ITOutsourcingPage from './pages/ITOutsourcingPage'
 
 /* ── Home page: scroll to hash section after router navigation (e.g. from /careers) ── */
 function HomePage() {
@@ -39,8 +40,9 @@ export default function App() {
   return (
     <Routes>
       <Route path="/"            element={<HomePage />} />
-      <Route path="/careers"     element={<CareersPage />} />
-      <Route path="/admin/jobs"  element={<AdminPage />} />
+      <Route path="/careers"        element={<CareersPage />} />
+      <Route path="/it-outsourcing" element={<ITOutsourcingPage />} />
+      <Route path="/admin/jobs"     element={<AdminPage />} />
     </Routes>
   )
 }

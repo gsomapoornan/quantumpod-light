@@ -1,11 +1,33 @@
+import tcsLogo from '../images/tcs.jpeg'
+import wiproLogo from '../images/wipro.jpeg'
 import asianPaintsLogo from '../images/asian-paints-logo-png_seeklogo-315813.png'
-import ltInfotechLogo  from '../images/ltinfotech.jpg'
-import nammaMetroLogo  from '../images/namma mtero logo.jpeg'
+import ltLogo from '../images/L&T.png'
+import honeywellLogo from '../images/Honeywell.png'
+import lancesoftLogo from '../images/lancesoft.jpeg'
+import syconeLogo from '../images/sycone.jpeg'
+import rajVrukshaLogo from '../images/RajVruksha Real Estate.jpeg'
+import centroidLogo from '../images/Centroid.png'
+import jadeGlobalLogo from '../images/Jade Global.jpeg'
+import impactGlobalLogo from '../images/Impact Global.jpeg'
+import cateniaLogo from '../images/Catenia.jpeg'
+import technoTackleLogo from '../images/ Techno Tackle.jpeg'
+import vvpSoftechLogo from '../images/VVP Softech.jpeg'
 
 const CLIENTS = [
-  { name: 'Asian Paints',  logo: asianPaintsLogo,  bg: '#ffffff' },
-  { name: 'LTI Mindtree', logo: ltInfotechLogo,    bg: '#ffffff' },
-  { name: 'Namma Metro',  logo: nammaMetroLogo,    bg: '#ffffff' },
+  { name: 'TCS',                  logo: tcsLogo },
+  { name: 'Wipro',                logo: wiproLogo },
+  { name: 'Asian Paints',         logo: asianPaintsLogo },
+  { name: 'L&T',                 logo: ltLogo },
+  { name: 'Honeywell',            logo: honeywellLogo },
+  { name: 'LanceSoft',            logo: lancesoftLogo },
+  { name: 'Sycone',               logo: syconeLogo },
+  { name: 'RajVruksha Real Estate', logo: rajVrukshaLogo },
+  { name: 'Centroid',             logo: centroidLogo },
+  { name: 'Jade Global',          logo: jadeGlobalLogo },
+  { name: 'Impact Global',        logo: impactGlobalLogo },
+  { name: 'Catenia',              logo: cateniaLogo },
+  { name: 'Techno Tackle',        logo: technoTackleLogo },
+  { name: 'VVP Softech',          logo: vvpSoftechLogo },
 ]
 
 /* Duplicate the list for seamless infinite marquee loop */
@@ -47,7 +69,7 @@ export default function StatsBar() {
           {MARQUEE.map((c, i) => (
             <div key={i}
               className="flex items-center justify-center flex-shrink-0"
-              style={{ height: '64px', padding: '0 16px', opacity: 0.8, transition: 'opacity 0.25s ease' }}
+              style={{ height: '64px', padding: '0 20px', opacity: 0.8, transition: 'opacity 0.25s ease' }}
               onMouseEnter={e => e.currentTarget.style.opacity = '1'}
               onMouseLeave={e => e.currentTarget.style.opacity = '0.8'}
             >
@@ -56,7 +78,7 @@ export default function StatsBar() {
                 alt={c.name}
                 style={{
                   maxWidth: '140px',
-                  maxHeight: '52px',
+                  maxHeight: '50px',
                   width: 'auto',
                   height: 'auto',
                   objectFit: 'contain',
